@@ -1,0 +1,474 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fizou-dark: #0f0f0f;
+  --color-fizou-dark-alt: #1a1a1a;
+  --color-fizou-red: #e3342f;
+  --color-fizou-white: #f5f5f5;
+  --color-fizou-gray: #a0a0a0;
+
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-inter);
+}
+
+:root {
+  --background: #0f0f0f;
+  --foreground: #f5f5f5;
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-outfit);
+  font-weight: 700;
+}
+
+/* ==========================================
+   TipTap Editor Styles (Admin)
+   ========================================== */
+
+.tiptap-editor {
+  min-height: 400px;
+  padding: 1.5rem;
+  color: #f5f5f5;
+  font-size: 1rem;
+  line-height: 1.8;
+  outline: none;
+  caret-color: #e3342f;
+}
+
+.tiptap-editor:focus {
+  outline: none;
+}
+
+/* Placeholder */
+.tiptap-editor p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #a0a0a080;
+  pointer-events: none;
+  height: 0;
+  font-style: italic;
+}
+
+/* Paragraphs */
+.tiptap-editor p {
+  margin-bottom: 0.75rem;
+}
+
+/* Headings */
+.tiptap-editor h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #f5f5f5;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-outfit);
+  border-bottom: 2px solid rgba(227, 52, 47, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.tiptap-editor h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-outfit);
+}
+
+.tiptap-editor h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-outfit);
+}
+
+/* Blockquote */
+.tiptap-editor blockquote {
+  border-left: 4px solid #e3342f;
+  background: rgba(227, 52, 47, 0.06);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: #d0d0d0;
+  position: relative;
+}
+
+.tiptap-editor blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.25rem;
+  left: 0.5rem;
+  font-size: 3rem;
+  color: rgba(227, 52, 47, 0.15);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.tiptap-editor blockquote p {
+  margin-bottom: 0.25rem;
+}
+
+/* Lists */
+.tiptap-editor ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+.tiptap-editor ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
+}
+
+.tiptap-editor li {
+  margin-bottom: 0.25rem;
+}
+
+.tiptap-editor li p {
+  margin-bottom: 0;
+}
+
+/* Links */
+.tiptap-editor a,
+.tiptap-editor .tiptap-link {
+  color: #e3342f;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+  cursor: pointer;
+}
+
+.tiptap-editor a:hover {
+  color: #ff5a52;
+}
+
+/* Images */
+.tiptap-editor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1.5rem auto;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* YouTube */
+.tiptap-editor .tiptap-youtube,
+.tiptap-editor div[data-youtube-video] {
+  margin: 1.5rem 0;
+}
+
+.tiptap-editor div[data-youtube-video] iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Code block */
+.tiptap-editor pre {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  color: #e0e0e0;
+}
+
+.tiptap-editor code {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875rem;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color: #e3342f;
+}
+
+.tiptap-editor pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Horizontal rule */
+.tiptap-editor hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(227, 52, 47, 0.5), transparent);
+  margin: 2rem 0;
+}
+
+/* Highlight */
+.tiptap-editor mark {
+  background-color: #fef08a;
+  color: #0f0f0f;
+  border-radius: 0.15rem;
+  padding: 0.05rem 0.15rem;
+}
+
+/* Strong / Bold */
+.tiptap-editor strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ==========================================
+   Article Content Styles (Frontend)
+   ========================================== */
+
+.article-content {
+  font-size: 1.125rem;
+  line-height: 1.9;
+  color: rgba(245, 245, 245, 0.85);
+}
+
+.article-content p {
+  margin-bottom: 1.25rem;
+}
+
+.article-content h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #f5f5f5;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-outfit);
+  border-bottom: 3px solid #e3342f;
+  padding-bottom: 0.5rem;
+}
+
+.article-content h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-outfit);
+}
+
+.article-content h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-outfit);
+}
+
+/* Citation / Blockquote */
+.article-content blockquote {
+  border-left: 4px solid #e3342f;
+  background: linear-gradient(135deg, rgba(227, 52, 47, 0.08) 0%, rgba(227, 52, 47, 0.02) 100%);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 0.75rem 0.75rem 0;
+  font-style: italic;
+  color: #d4d4d4;
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.article-content blockquote::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 4rem;
+  color: rgba(227, 52, 47, 0.12);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.article-content blockquote p {
+  margin-bottom: 0.5rem;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+.article-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.article-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-content li p {
+  margin-bottom: 0;
+}
+
+/* Links */
+.article-content a {
+  color: #e3342f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(227, 52, 47, 0.4);
+  transition: all 0.2s;
+}
+
+.article-content a:hover {
+  color: #ff5a52;
+  text-decoration-color: #ff5a52;
+}
+
+/* Images */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2rem auto;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* YouTube */
+.article-content div[data-youtube-video] {
+  margin: 2rem 0;
+}
+
+.article-content div[data-youtube-video] iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Code */
+.article-content pre {
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+  color: #e0e0e0;
+}
+
+.article-content code {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.875rem;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  color: #e3342f;
+}
+
+.article-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Horizontal rule */
+.article-content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #e3342f, transparent);
+  margin: 2.5rem 0;
+}
+
+/* Highlight */
+.article-content mark {
+  background-color: #fef08a;
+  color: #0f0f0f;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.2rem;
+}
+
+/* Strong */
+.article-content strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Italic */
+.article-content em {
+  font-style: italic;
+}
+
+/* ==========================================
+   Mobile Responsive Adjustments
+   ========================================== */
+
+@media (max-width: 640px) {
+  .article-content {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .article-content h2 {
+    font-size: 1.35rem;
+    margin-top: 2rem;
+  }
+
+  .article-content h3 {
+    font-size: 1.15rem;
+    margin-top: 1.5rem;
+  }
+
+  .article-content blockquote {
+    padding: 1rem 1.15rem;
+    margin: 1.25rem 0;
+    font-size: 1rem;
+  }
+
+  .article-content blockquote::before {
+    font-size: 2.5rem;
+  }
+
+  .article-content img {
+    border-radius: 0.5rem;
+    margin: 1.25rem auto;
+  }
+}
+
+/* Ensure touch targets are at least 44px */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
