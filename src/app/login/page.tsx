@@ -1,15 +1,13 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Eye, EyeOff, LogIn, ArrowLeft } from "lucide-react";
 
-export default function LoginPage() {
+function LoginContent() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -149,5 +147,17 @@ export default function LoginPage() {
                 </div>
             </div>
         </main>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={
+            <main className="min-h-screen flex items-center justify-center bg-fizou-dark">
+                <div className="h-8 w-8 border-2 border-fizou-red/30 border-t-fizou-red rounded-full animate-spin" />
+            </main>
+        }>
+            <LoginContent />
+        </Suspense>
     );
 }
